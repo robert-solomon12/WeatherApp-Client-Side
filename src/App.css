@@ -1,0 +1,70 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.head-title h1, h3 {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  padding: 1em;
+  color: orange;
+
+}
+
+p{
+   color: orange;
+}
+
+form {
+   width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+   
+}
+
+
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("weather2.jpg"); /*linear-gradient(rgb(163,150,47),rgb(123,23,56));*/
+  font-family: sans-serif;
+}
+
+.temperature {
+   height: 30vh;
+   width: 50%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+}
+
+.degree-section {
+  color:red;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+}
+
+.degree-section span {
+   margin: 10px;
+   font-size: 30px;
+}
+
+.degree-section h2 {
+   font-size: 40px;
+}
+
+.temperature-description {
+ color:white;
+ font-size: 20px;
+ font-family: Arial, Helvetica, sans-serif;
+}
