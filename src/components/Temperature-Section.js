@@ -7,7 +7,7 @@ class Temperature extends React.Component {
         <div className="degree-section">
         <h2 className="temperature-degree">
             { this.props.temperature }</h2>
-            <span>°C</span>
+            <span>F</span>
         </div>
             <div className="temperature-description">
             <p>City: { this.props.cityname }</p>
