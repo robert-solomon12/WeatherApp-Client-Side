@@ -2,7 +2,7 @@
 
 # Overview of the Project
 
-As part of my React Assignment, the objective is to develop a SPA, using React. I developed a Weather-Web-Application for my Project.
+As part of my React Assignment, the objective is to develop a SPA, using React. I developed a minor Weather-Web-Application for my Project. This can be improved alot more but due to the time I had in terms of the assignment, I didn't have the chance to expand the interactivity and design any further. I may update this project in time after it has been graded because I really enjoyed building this Web-Application.
 
 
 # Setup Installation Instructions as follows
