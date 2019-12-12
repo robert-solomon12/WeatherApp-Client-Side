@@ -7,14 +7,12 @@ As part of my React Assignment, the objective is to develop a SPA, using React. 
 
 # Setup Installation Instructions as follows
   • Ensure that you have the following steps completed before running the Project: 
-    
-    <b> sudo npm install </b>
-    
-    <b> git clone this repo</b>
-    
-    <b> cd react-weather-cli</b>
-    
-    <b> sudo npm start </b>
+   
+        <b> git clone this repo</b>
+   
+        <b> sudo npm install </b>
+       
+        <b> sudo npm start </b>
           
  
     
