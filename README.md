@@ -1,4 +1,4 @@
-# React-Weather-Application (WebAppAssignment)
+# React-Weather-Application (Client-Side)
 
 # Overview of the Project
 
