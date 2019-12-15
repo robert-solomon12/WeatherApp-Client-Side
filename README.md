@@ -26,7 +26,6 @@ The backend server is built as a seperate project since it serves as a server to
 
 <img src="IMG/Feedback%20UI.png">
     
-    
  # Project was built with the assistance of the following Acknowledgements
  - Weather API that I used can be found [here](https://openweathermap.org/)
  - Labwork Assistance
@@ -34,7 +33,10 @@ The backend server is built as a seperate project since it serves as a server to
  - [Javascript for Beginners Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9i9Ae2D9Ee1RvylH38dKuET)
  # CRUD Assistance
   - Partial Crud help was found [here](https://www.youtube.com/watch?v=HZkN0LfC5dM&list=PLjW0UGS7gVqd9_BfJBkGAEUguPBeJ-LcE&index=2&t=0s)
-   
+
+# Routing/Navigation
+I also found this very useful to help with the navigation across pages in my webapp which can be found in the following playlist [here](https://www.youtube.com/playlist?list=PL3KAvm6JMiowqFTXj3oPQkhP7aCgRHFTm)
+ 
     
 <br> Should you have any problems, don't hesitate to contact me on my email at:</br> [20079462@mail.wit.ie](mailto:20079462@mail.wit.ie)
 <br>or if you find a bug </br>[open up an issue here](https://github.com/robertsolomon97/WebAppAssignment/issues)
