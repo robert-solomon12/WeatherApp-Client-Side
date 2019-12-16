@@ -20,7 +20,7 @@ As part of my React Assignment, the objective is to develop a SPA, using React. 
    In this Web-App Project you will notice that I have each of the the parts of the one page build in different Components and I'm individually rendering all of them in their respective Views. 
 
 # Weather API  
-I'm using the Open Weather API to capture the weather information request based on the city and country name you enter. In this case the Temperature, Humidity, Weather Conditions gets rendered out at that point of time. Once the user enter's City Name and Country Name and clicks the 'Get Weather Information' Button, the form is processed and sends a 'onSubmit' request with the function name that is then called to retrieve the information.
+I'm using the Open Weather API to capture the weather information request based on the city and country name you enter. In this case the Temperature, Humidity, Weather Conditions gets rendered out in real-time at that point in time. Once the user enter's City Name and Country Name and clicks the 'Get Weather Information' Button, the form is processed and sends a 'onSubmit' request with the function name that is then called to retrieve the information.
 
 <img src="IMG/WeatherView.png">
 
