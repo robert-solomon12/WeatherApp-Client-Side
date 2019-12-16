@@ -1,15 +1,13 @@
 import React from "react";
+import './Contact.css';
 
 class Temperature extends React.Component {
     render() {
         return (
-    <div className="temperature">
-        <div className="degree-section">
-        <h2 className="temperature-degree">
-            { this.props.temperature }</h2>
-            <span>F</span>
-        </div>
-            <div className="temperature-description">
+            <div>
+       <div className="myForm">
+    
+            <p>Temperature: { this.props.temperature }</p>
             <p>City: { this.props.cityname }</p>
             <p>Country: { this.props.countryname }</p>
             <p>Condition: { this.props.description }</p>

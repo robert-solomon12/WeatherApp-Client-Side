@@ -1,101 +1,173 @@
 import React, { Component } from 'react';
-import '../App.css';
+import axios from 'axios';
+import './Contact.css';
 
 class Contact extends Component {
 
-  constructor(props){
+
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       title: 'Contact Us',
       act: 0,
       index: '',
-      datas: []
+      datas: [],
+      id: 0,
     }
-  } 
-
-  componentDidMount(){
-    this.refs.name.focus();
   }
 
-  fSubmit = (e) =>{
+  componentDidMount() {
+    this.refs.fName.focus();
+  }
+
+  fSubmit = async (e) => {
     e.preventDefault();
     console.log('try');
 
     let datas = this.state.datas;
-    let name = this.refs.name.value;
+    let fName = this.refs.fName.value;
+    let lName = this.refs.lName.value;
     let address = this.refs.address.value;
     let mobilenum = this.refs.mobilenum.value;
     let email = this.refs.email.value;
 
-    if(this.state.act === 0){   //new
+
+    //on submission we push the values to our data
+    if (this.state.act === 0) {   //new
       let data = {
-        name, address, mobilenum, email
+        fName, lName, address, mobilenum, email
       }
       datas.push(data);
-    }else{                      //update
+    } 
+
+    else {                      //update
       let index = this.state.index;
-      datas[index].name = name;
+      datas[index].fName = fName;
+      datas[index].lName = lName;
       datas[index].address = address;
       datas[index].mobilenum = mobilenum;
       datas[index].email = email;
-    }    
+    }
 
     this.setState({
       datas: datas,
       act: 0
     });
 
+
+// on submission we use the axios post method to post our data to our database through our api 
+
+      await axios.post('http://localhost:3001/api/contactInfo', {
+      datas: {
+        fName: fName, lName: lName, address: address, mobileNumber: mobilenum, email: email
+      }
+    })
+      //here I'm just logging back the response i get when the data is posted 
+      .then(res => console.log(res.datas));
+
+//I'm resetting the form here and focus back up to the name 
     this.refs.myForm.reset();
-    this.refs.name.focus();
+    this.refs.fName.focus();
   }
 
-  fRemove = (i) => {
-    let datas = this.state.datas;
-    datas.splice(i,1);
-    this.setState({
-      datas: datas
-    });
 
-    this.refs.myForm.reset();
-    this.refs.name.focus();
+//using async handler to prevent the page from refreshing
+  fFetchInfo = async (e) => {
+    e.preventDefault();
+
+    //using axios get method to retrieve json data from my api 
+      axios.get('http://localhost:3001/api/contactInfo')
+      //writing a then statement to get back response from the api and logging out the response on the console
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error)
+       // this.setState(errorMsg: 'Failed to retrieve the data')
+      })
   }
+
+deleteFuc = async (e) => {
+   e.preventDefault();
+
+  //using axios get method to retrieve json data from my api 
+      axios.delete('http://localhost:3001/api/contactInfo/{this.state.id}')
+      //writing a then statement to get back response from the api and logging out the response on the console
+      .then(response => {
+        console.log(response)
+        this.setState({})
+      })
+      .catch(error => {
+        console.log(error)
+       // this.setState(errorMsg: 'Failed to retrieve the data')
+      })
+}
+
+
+
+  // fRemove = (i) => {
+  //   let datas = this.state.datas;
+  //   datas.splice(i, 1);
+  //   this.setState({
+  //     datas: datas
+  //   });
+
+  //   this.refs.myForm.reset();
+  //   this.refs.fName.focus();
+  // }
 
   fEdit = (i) => {
     let data = this.state.datas[i];
-    this.refs.name.value = data.name;
+    this.refs.fName.value = data.fName;
+    this.refs.lName.value = data.lName;
     this.refs.address.value = data.address;
     this.refs.mobilenum.value = data.mobilenum;
     this.refs.email.value = data.email;
+
 
     this.setState({
       act: 1,
       index: i
     });
 
-    this.refs.name.focus();
-  }  
+    this.refs.fName.focus();
+  }
+
+
+//Event handler to handle the state of deletion based by id  
+  handleChange = event => {
+    this.setState({ id: event.target.value });
+  };
+
 
   render() {
     let datas = this.state.datas;
+      // const { datas } = this.state
     return (
       <div>
-      <div className="contact-info">
-        <h2>{this.state.title}</h2>
-        <p>If you have any questions or you want to contact us, please provide us with your information below.</p>
-        <form ref="myForm" className="myForm">
-          <input type="text" ref="name" placeholder="your name" className="formField" />
-          <input type="textfield" ref="address" placeholder="your address" className="formField" />
-          <input type="textfield" ref="mobilenum" placeholder="your mobile number" className="formField" />
-          <input type="textfield" ref="email" placeholder="your email contact" className="formField" />
-          <button onClick={(e)=>this.fSubmit(e)} className="myButton">submit </button>
-        </form>
+        <div className="contact-info">
+          <h2>{this.state.title}</h2>
+          <p className="p2">If you have any questions or you want to contact us, please provide us with
+           your information below with your comments or questions below. </p>
+          <form ref="myForm" className="myForm">
+            <input type="text" ref="fName" placeholder="First Name" className="formField" />
+            <input type="text" ref="lName" placeholder="Last Name" className="formField" />
+            <input type="textfield" ref="address" placeholder="Address" className="formField" />
+            <input type="textfield" ref="mobilenum" placeholder="Mobile  Number" className="formField" />
+            <input type="textfield" ref="email" placeholder="Email Address" className="formField" />
+            <button onClick={(e) => this.fSubmit(e)} className="mySubButton">submit </button>
+            <a href="http://localhost:3000/ContactList"> View List</a>
+            <button onClick={(e) => this.fFetchInfo(e)} className="mySubButton">Retrieve </button>
+            <label> Person ID: <input type="number" ref="id" onChange={this.handleChange} /> </label>
+            <button onClick={(e) => this.deleteFunc(e)} className="myDelButton">Delete </button>
+          </form>
         </div>
-        <pre>
+         <pre>
           {datas.map((data, i) =>
             <li key={i} className="myList">
-              {i+1}. {data.name}, {data.address}, {data.mobilenum}, {data.email}
-              <button onClick={()=>this.fRemove(i)} className="myRemovButton">remove </button>
-              <button onClick={()=>this.fEdit(i)} className="myEditButton">edit </button>
+              {i+1}. {data.fName}, {data.lName}, {data.address}, {data.mobilenum}, {data.email} 
+              <button onClick={()=>this.fRemove(i)} className="myListButton">remove </button>
+              <button onClick={()=>this.fEdit(i)} className="myListButton">edit </button>
             </li>
           )}
         </pre>
@@ -105,3 +177,27 @@ class Contact extends Component {
 }
 
 export default Contact;
+
+    
+          ///List of Contacts with Comments or Questions:
+//           {
+//             datas.length ?
+//             datas.map(contacts => <div key={contacts._id}>{contacts.name}>{contacts.address}>contacts.email) :
+//             null
+//           }
+             
+//             )
+
+
+
+
+        //// <pre>
+        //   {datas.map((data, i) =>
+        //     <li key={i} className="myList">
+        //       {i + 1}. {data.name}, {data.address}, {data.mobilenum}, {data.email}
+        //       <button onClick={() => this.fRemove(i)} className="myRemovButton">remove </button>
+        //       <button onClick={() => this.fEdit(i)} className="myEditButton">edit </button>
+        //     </li>
+        //   )}
+        // </pre>
+     // </div>
