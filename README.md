@@ -16,7 +16,7 @@ As part of my React Assignment, the objective is to develop a SPA, using React. 
           
  
     
-# User Interface/
+# User Interface
    In this Web-App Project you will notice that I have each of the the parts of the one page build in different Components and I'm individually rendering all of them in their respective Views. 
 
 # Weather API  
