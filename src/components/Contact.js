@@ -59,7 +59,11 @@ class Contact extends Component {
 
       await axios.post('http://localhost:3001/api/contactInfo', {
       datas: {
-        fName: fName, lName: lName, address: address, mobileNumber: mobilenum, email: email
+        fName: fName,
+        lName: lName,
+        address: address,
+        mobileNumber: mobilenum,
+        email: email
       }
     })
       //here I'm just logging back the response i get when the data is posted 
@@ -77,44 +81,30 @@ class Contact extends Component {
 
     //using axios get method to retrieve json data from my api 
       axios.get('http://localhost:3001/api/contactInfo')
-      //writing a then statement to get back response from the api and logging out the response on the console
+      //writing a then statement to get back a response from the api and logging out the response on the console
       .then(response => {
         console.log(response);
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
        // this.setState(errorMsg: 'Failed to retrieve the data')
       })
   }
 
-deleteFuc = async (e) => {
-   e.preventDefault();
-
-  //using axios get method to retrieve json data from my api 
-      axios.delete('http://localhost:3001/api/contactInfo/{this.state.id}')
-      //writing a then statement to get back response from the api and logging out the response on the console
-      .then(response => {
-        console.log(response)
-        this.setState({})
-      })
-      .catch(error => {
-        console.log(error)
-       // this.setState(errorMsg: 'Failed to retrieve the data')
-      })
-}
 
 
 
-  // fRemove = (i) => {
-  //   let datas = this.state.datas;
-  //   datas.splice(i, 1);
-  //   this.setState({
-  //     datas: datas
-  //   });
 
-  //   this.refs.myForm.reset();
-  //   this.refs.fName.focus();
-  // }
+  fRemove = (i) => {
+    let datas = this.state.datas;
+    datas.splice(i, 1);
+    this.setState({
+      datas: datas
+    });
+
+    this.refs.myForm.reset();
+    this.refs.fName.focus();
+  }
 
   fEdit = (i) => {
     let data = this.state.datas[i];
@@ -140,6 +130,19 @@ deleteFuc = async (e) => {
   };
 
 
+  deleteFuc = async (e) => {
+   e.preventDefault();
+
+  //using axios get method to retrieve json data from my api 
+      axios.delete('http://localhost:3001/api/contactInfo/${this.state.id}')
+      //writing a then statement to get back response from the api and logging out the response on the console
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      })
+}
+
+
   render() {
     let datas = this.state.datas;
       // const { datas } = this.state
@@ -155,11 +158,11 @@ deleteFuc = async (e) => {
             <input type="textfield" ref="address" placeholder="Address" className="formField" />
             <input type="textfield" ref="mobilenum" placeholder="Mobile  Number" className="formField" />
             <input type="textfield" ref="email" placeholder="Email Address" className="formField" />
-            <button onClick={(e) => this.fSubmit(e)} className="mySubButton">submit </button>
-            <a href="http://localhost:3000/ContactList"> View List</a>
+            <button onClick={(e) => this.fSubmit(e)} className="mySubButton">Submit </button>
+            <a href="http://localhost:3001/api/contactInfo"> View List</a>
             <button onClick={(e) => this.fFetchInfo(e)} className="mySubButton">Retrieve </button>
-            <label> Person ID: <input type="number" ref="id" onChange={this.handleChange} /> </label>
-            <button onClick={(e) => this.deleteFunc(e)} className="myDelButton">Delete </button>
+            <label> Person ID: <input type="number" onChange={this.handleChange} /> </label>
+            <button onClick={(e) => this.fDelete(e)} className="myDelButton">Delete </button>
           </form>
         </div>
          <pre>
