@@ -52,7 +52,7 @@ constructor() {
 <h1>Weather List of Queries made from the Weather App</h1>
 </header>
       <ul>
-        { filteredWeatherList.map(weatherInfo => <li> City: {weatherInfo.cityname}, Coutry: {weatherInfo.countryname}, Description: {weatherInfo.description}, humidity: {weatherInfo.humidity}, Wind Degree: {weatherInfo.wind_degree}</li>) }
+        { filteredWeatherList.map(weatherInfo => <li> City: {weatherInfo.cityname}, Country: {weatherInfo.countryname}, Description: {weatherInfo.description}, humidity: {weatherInfo.humidity}, Wind Degree: {weatherInfo.wind_degree}</li>) }
       </ul>
       <div className="myForm">
       <input type="text" value={this.state.search} placeholder="Filter by City"
