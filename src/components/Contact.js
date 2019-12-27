@@ -75,24 +75,6 @@ class Contact extends Component {
   }
 
 
-//using async handler to prevent the page from refreshing
-  fFetchInfo = async (e) => {
-    e.preventDefault();
-
-    //using axios get method to retrieve json data from my api 
-      axios.get('http://localhost:3001/api/contactInfo')
-      //writing a then statement to get back a response from the api and logging out the response on the console
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-       // this.setState(errorMsg: 'Failed to retrieve the data')
-      })
-  }
-
-
-
 
 
   fRemove = (i) => {
@@ -124,25 +106,6 @@ class Contact extends Component {
   }
 
 
-//Event handler to handle the state of deletion based by id  
-  handleChange = event => {
-    this.setState({ id: event.target.value });
-  };
-
-
-  deleteFuc = async (e) => {
-   e.preventDefault();
-
-  //using axios get method to retrieve json data from my api 
-      axios.delete('http://localhost:3001/api/contactInfo/${this.state.id}')
-      //writing a then statement to get back response from the api and logging out the response on the console
-      .then(response => {
-        console.log(response);
-        console.log(response.data);
-      })
-}
-
-
   render() {
     let datas = this.state.datas;
       // const { datas } = this.state
@@ -159,10 +122,6 @@ class Contact extends Component {
             <input type="textfield" ref="mobilenum" placeholder="Mobile  Number" className="formField" />
             <input type="textfield" ref="email" placeholder="Email Address" className="formField" />
             <button onClick={(e) => this.fSubmit(e)} className="mySubButton">Submit </button>
-            <a href="http://localhost:3001/api/contactInfo"> View List</a>
-            <button onClick={(e) => this.fFetchInfo(e)} className="mySubButton">Retrieve </button>
-            <label> Person ID: <input type="number" onChange={this.handleChange} /> </label>
-            <button onClick={(e) => this.fDelete(e)} className="myDelButton">Delete </button>
           </form>
         </div>
          <pre>
