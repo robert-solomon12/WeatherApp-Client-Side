@@ -27,15 +27,17 @@ function App() {
                         <Navigation>
                             <Link to="/weatherView">Home</Link>
                             <Link to="/Contact">Contact</Link>
+                            <Link to="/WeatherInfoList">WeatherInfoList</Link>
                             <Link to="/About">About Weather App</Link>
-
                         </Navigation>
+                        
                     </HeaderRow>
                 </Header>
                 <Drawer title="Title">
                     <Navigation>
                         <Link to="/weatherView">Home</Link>
                         <Link to="/Contact">Contact</Link>
+                        <Link to="/WeatherInfoList">WeatherInfoList</Link>
                         <Link to="/About">About WeatherApp</Link>
                     </Navigation>
                 </Drawer>
