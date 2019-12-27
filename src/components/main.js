@@ -7,14 +7,14 @@ import  {Switch, Route}  from 'react-router-dom';
 import Contact from './Contact';
 import WeatherView from './weatherView';
 import About from './About';
-// import ContactList from './ListComp';
+import WeatherInfoList from './WeatherInfoList';
 
 
 const Main = () => (
 <Switch>
 <Route exact path="/" component={WeatherView} />
 <Route path="/Contact" component={Contact} />
-
+<Route path="/WeatherInfoList" component={WeatherInfoList} />
 <Route path="/weatherView" component={WeatherView} />
 <Route path="/About" component={About} />
 
