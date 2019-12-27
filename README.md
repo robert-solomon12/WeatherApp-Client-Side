@@ -31,9 +31,13 @@ The backend server is built as a seperate project since it serves as a server to
 
 <img src="IMG/WeatherListView.png">
 
+
 <img src="IMG/AboutView.png">
 
+# Note
+On each of the pages I also have a footer rendered out accross all pages with a hyperlink
 
+<img src="IMG/Footer.png">
     
  # Project was built with the assistance of the following Acknowledgements
  - Weather API that I used can be found [here](https://openweathermap.org/)
