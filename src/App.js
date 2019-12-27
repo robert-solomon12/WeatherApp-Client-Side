@@ -15,13 +15,6 @@ function App() {
             <Layout>
                 <Header className="header-design" title="Title" scroll>
                     <HeaderRow title="Robert's Weather Application">
-                        <Textfield
-                            value=""
-                            onChange={() => { }}
-                            label="Search2"
-                            expandable
-                            expandableIcon="search"
-                        />
                     </HeaderRow>
                     <HeaderRow>
                         <Navigation>
