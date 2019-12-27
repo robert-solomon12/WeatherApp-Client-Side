@@ -29,7 +29,11 @@ The backend server is built as a seperate project since it serves as a server to
 <img src="IMG/ContactView.png">
 
 
+<img src="IMG/WeatherListView.png">
+
 <img src="IMG/AboutView.png">
+
+
     
  # Project was built with the assistance of the following Acknowledgements
  - Weather API that I used can be found [here](https://openweathermap.org/)
