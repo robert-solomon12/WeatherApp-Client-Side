@@ -55,9 +55,9 @@ constructor() {
       <input type="text" value={this.state.search} placeholder="Filter by City"
        onChange={this.updateSearch.bind(this)} />
 
-      <ul>
+      <ol>
         { filteredWeatherList.map(weatherInfo => <li className="list"> City: {weatherInfo.cityname}, Country: {weatherInfo.countryname}, Description: {weatherInfo.description}, humidity: {weatherInfo.humidity}, Wind Degree: {weatherInfo.wind_degree}</li>) }
-      </ul>
+      </ol>
       </div>
       </div>
     )
