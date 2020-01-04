@@ -40,7 +40,7 @@ On each of the pages I also have a footer rendered out accross all pages with a 
 <img src="IMG/Footer.png">
     
  # Project was built with the assistance of the following Acknowledgements
- - Weather API that I used can be found [here](https://openweathermap.org/)
+ - Weather API that I used can be found [here](https://openweathermap.org/api)
  - Labwork Assistance
  - [Search Filtering](https://www.youtube.com/watch?v=OlVkYnVXPl0&list=PL7uQz5cySUq8vRslXnqc8BCwiEg7KaL6X&index=36)
  - [Javascript for Beginners Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9i9Ae2D9Ee1RvylH38dKuET)
